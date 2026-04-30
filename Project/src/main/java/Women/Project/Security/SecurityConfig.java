@@ -15,12 +15,12 @@ public class SecurityConfig {
 
         http
                 .csrf(csrf -> csrf.disable())   // 🔥 VERY IMPORTANT
-                .cors(cors -> {})               // enable CORS
+                .cors(cors -> {})
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/contacts/**").permitAll()
                         .requestMatchers("/api/emergency/**").permitAll()
-                        .requestMatchers("/api/analyze").permitAll()// ✅ ADD THIS
+                        .requestMatchers("/api/analyze/**").permitAll()
                         .anyRequest().authenticated()
                 );
 

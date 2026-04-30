@@ -4,6 +4,7 @@ import Women.Project.Models.Contact;
 import Women.Project.Repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class EmergencyService {
     @Autowired
     private SmsService smsService;
 
+    @Transactional
     public void triggerEmergency(String reason, String riskLevel,
                                  double lat, double lon, Long userId) {
 

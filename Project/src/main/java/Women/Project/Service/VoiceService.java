@@ -21,7 +21,7 @@ public class VoiceService {
     @Autowired
     private RestTemplate restTemplate;
 
-    private static final String PYTHON_URL = "http://127.0.0.1:5000/analyze"; // ✅ change this
+    private static final String PYTHON_URL = "https://kavi-28-womenapp.hf.space/analyze"; // ✅ change this
 
     public AnalysisResultDTO analyzeAudio(Path filePath) throws Exception {
 

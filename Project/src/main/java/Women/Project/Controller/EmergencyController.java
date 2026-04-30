@@ -15,7 +15,8 @@ public class EmergencyController {
 
     @PostMapping("/trigger")
     public void trigger(@RequestBody EmergencyRequest request) {
-
+        System.out.println("Received from app: " + request);
+        System.out.println("userId: " + request.getUserId());
         emergencyService.triggerEmergency(
                 request.getReason(),
                 request.getRiskLevel(),

@@ -26,4 +26,8 @@ public class AuthController {
     public ResponseEntity<Map<String, Object>> login(@RequestBody User request) {
         return ResponseEntity.ok(authService.login(request));
     }
+    @GetMapping("/")
+    public String health(){
+        return "Welcome to Women!";
+    }
 }

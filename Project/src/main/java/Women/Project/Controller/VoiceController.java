@@ -79,14 +79,14 @@ public class VoiceController {
                             "details", e.getMessage()
                     ));
 
-//        } finally {
-//            if (filePath != null && Files.exists(filePath)) {
-//                try {
-//                    Files.delete(filePath);
-//                } catch (IOException e) {
-//                    System.err.println("Delete failed");
-//                }
-//            }
+        } finally {
+            if (filePath != null && Files.exists(filePath)) {
+                try {
+                    Files.delete(filePath);
+                } catch (IOException e) {
+                    System.err.println("Delete failed");
+                }
+            }
         }
     }
 }
