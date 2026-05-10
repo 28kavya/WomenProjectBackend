@@ -1,6 +1,8 @@
 package Women.Project.Service;
 
 import Women.Project.Models.Contact;
+import Women.Project.Models.User;
+import Women.Project.Repository.AuthRepository;
 import Women.Project.Repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,8 @@ public class EmergencyService {
 
     @Autowired
     private ContactRepository repository;
+    @Autowired
+    private AuthRepository authRepository;
 
     @Autowired
     private SmsService smsService;
@@ -32,13 +36,20 @@ public class EmergencyService {
             return;
         }
 
+        User user = authRepository.findById(userId).orElse(null);
+
+        if (user == null) {
+            System.out.println("❌ User not found");
+            return;
+        }
+        String userName = user.getName();
         String message = "🚨 EMERGENCY ALERT!\n"
+                +"user name: " + userName + "\n"
                 + "Reason: " + reason + "\n"
                 + "Risk: " + riskLevel + "\n"
                 + "Location: https://maps.google.com/?q=" + lat + "," + lon + "\n";
 
         for (Contact contact : contacts) {
-            System.out.println("📤 Sending SMS to: " + contact.getPhone());
 
             smsService.sendSms(contact.getPhone(), message);
         }

@@ -18,19 +18,16 @@ public class SmsService {
                 toNumber = "+91" + toNumber;
             }
 
-            System.out.println("📲 Final number: " + toNumber);
-            System.out.println("📩 Sending message: " + message);
-
             Message.creator(
                     new PhoneNumber(toNumber),
                     new PhoneNumber(fromNumber),
                     message
             ).create();
 
-            System.out.println("✅ SMS sent to " + toNumber);
+            System.out.println("✅ SMS sent  " );
 
         } catch (Exception e) {
-            System.out.println("❌ SMS failed for " + toNumber);
+            System.out.println("❌ SMS failed ");
             e.printStackTrace();
         }
     }

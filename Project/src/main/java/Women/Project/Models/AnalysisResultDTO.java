@@ -11,6 +11,6 @@ public class AnalysisResultDTO {
     private boolean alert_triggered;
     private String overall_risk_level;
 
-    private String transcription;              // ✅ FIXED
-    private List<YamnetLabel> yamnet_labels;   // ✅ FIXED
+    private String transcription;
+    private List<YamnetLabel> yamnet_labels;
 }
